@@ -13,7 +13,7 @@ FetchContent_MakeAvailable(SFML)
 add_executable(aries src/main.cpp "src/Game.h" "src/Game.cpp")
 target_link_libraries(aries PRIVATE sfml-graphics)
 target_compile_features(aries PRIVATE cxx_std_20)
-
+target_compile_definitions(aries PRIVATE TEXTURE_PATH="${CMAKE_SOURCE_DIR}/src/content/textures/")
 if(WIN32)
     add_custom_command(
         TARGET aries

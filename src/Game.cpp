@@ -1,11 +1,17 @@
 #include "Game.h"
 
+#include <iostream>
+
 aries::Game::Game()
-	: mWindow(sf::VideoMode(640, 480), "ARIES")
+	: mWindow(sf::VideoMode(1920, 1080), "ARIES")
 {
-	mPlayer.setRadius(40.f);
+	if(!mTexture.loadFromFile(TEXTURE_PATH "test.png"))
+	{
+		std::cout << "FILE NOT FOUND!!";
+		return;
+	}
+	mPlayer.setTexture(mTexture);
 	mPlayer.setPosition(100.f, 100.f);
-	mPlayer.setFillColor(sf::Color::Magenta);
 }
 
 void aries::Game::run()
@@ -50,10 +56,10 @@ void aries::Game::processEvents()
 void aries::Game::update(sf::Time deltaTime)
 {
 	sf::Vector2f movement(0.f, 0.f);
-		if (mIsMovingUp) movement.y -= 10.f;
-		if (mIsMovingDown) movement.y += 10.f;
-		if (mIsMovingLeft) movement.x -= 10.f;
-		if (mIsMovingRight) movement.x += 10.f;
+		if (mIsMovingUp) movement.y -= 100.f;
+		if (mIsMovingDown) movement.y += 100.f;
+		if (mIsMovingLeft) movement.x -= 100.f;
+		if (mIsMovingRight) movement.x += 100.f;
 
 		mPlayer.move(movement * deltaTime.asSeconds());
 }
