@@ -1,5 +1,3 @@
-#include "ResourceHolder.h"
-
 template <typename Resource, typename ID>
 void aries::ResourceHolder<Resource, ID>::load(ID id, const std::string& filename)
 {

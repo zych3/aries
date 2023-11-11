@@ -1,6 +1,7 @@
 #include "Game.h"
 
 #include <iostream>
+#include <fmt/core.h>
 
 aries::Game::Game()
 	: mWindow(sf::VideoMode(1920, 1080), "ARIES")
@@ -12,6 +13,8 @@ aries::Game::Game()
 	}
 	mPlayer.setTexture(mTexture);
 	mPlayer.setPosition(100.f, 100.f);
+	
+	
 }
 
 void aries::Game::run()
