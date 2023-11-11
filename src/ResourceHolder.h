@@ -1,8 +1,5 @@
 #pragma once
-#include <memory>
-#include <map>
-#include <stdexcept>
-#include <SFML/Graphics.hpp>
+#include "ariespcf.h"
 namespace aries
 {
 	enum class Texture

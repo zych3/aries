@@ -1,5 +1,5 @@
 #pragma once
-#include <SFML/Graphics.hpp>
+#include "ariespch.h"
 #include "ResourceHolder.h"
 namespace aries
 {

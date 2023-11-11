@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.16)
 project(aries LANGUAGES CXX)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+set(PRECOMPILED_HEADER_FILE "src/ariespch.h")
+
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 
 include(FetchContent)
@@ -10,10 +13,11 @@ FetchContent_Declare(SFML
     GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
 
-add_executable(aries src/main.cpp "src/Game.h" "src/Game.cpp" "src/ResourceHolder.h"  "src/ResourceHolder.cpp")
+add_executable(aries src/main.cpp "src/Game.h" "src/Game.cpp" "src/ResourceHolder.h"  "src/ResourceHolder.cpp" "src/ariespch.h" "src/ariespch.cpp")
 target_link_libraries(aries PRIVATE sfml-graphics)
 target_compile_features(aries PRIVATE cxx_std_20)
 target_compile_definitions(aries PRIVATE TEXTURE_PATH="${CMAKE_SOURCE_DIR}/src/content/textures/")
+target_precompile_headers(aries PRIVATE ${PRECOMPILED_HEADER_FILE})
 if(WIN32)
     add_custom_command(
         TARGET aries
