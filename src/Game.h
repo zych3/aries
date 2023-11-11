@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "ResourceHolder.h"
 namespace aries
 {
 	class Game
@@ -7,8 +8,7 @@ namespace aries
 	public:
 		Game();
 		void run();
-		const sf::Time TimePerFrame =
-			sf::seconds(1.f / 60.f);
+		const sf::Time TimePerFrame = sf::seconds(1.f / 60.f);
 
 	private:
 		void processEvents();

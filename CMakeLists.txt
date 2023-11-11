@@ -10,7 +10,7 @@ FetchContent_Declare(SFML
     GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
 
-add_executable(aries src/main.cpp "src/Game.h" "src/Game.cpp")
+add_executable(aries src/main.cpp "src/Game.h" "src/Game.cpp" "src/ResourceHolder.h"  "src/ResourceHolder.cpp")
 target_link_libraries(aries PRIVATE sfml-graphics)
 target_compile_features(aries PRIVATE cxx_std_20)
 target_compile_definitions(aries PRIVATE TEXTURE_PATH="${CMAKE_SOURCE_DIR}/src/content/textures/")
