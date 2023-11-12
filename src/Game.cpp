@@ -65,6 +65,9 @@ void aries::Game::update(sf::Time deltaTime)
 		if (mIsMovingRight) movement.x += 100.f;
 
 		mPlayer.move(movement * deltaTime.asSeconds());
+
+		
+
 }
 
 void aries::Game::render()

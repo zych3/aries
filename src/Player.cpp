@@ -12,3 +12,5 @@ void aries::Player::drawCurrent(sf::RenderTarget& target, sf::RenderStates state
 {
 	target.draw(mSprite, states);
 }
+
+

@@ -41,7 +41,12 @@ namespace aries
 
 
 
-
+	enum class Layer
+	{
+		background,
+		gameplay,
+		counter
+	};
 	
 
 	template<typename Resource, typename ID>

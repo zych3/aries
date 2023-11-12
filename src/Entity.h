@@ -7,9 +7,11 @@ namespace aries
 	public:
 		void setVelocity(sf::Vector2f);
 		void setVelocity(float vx, float vy);
-		sf::Vector2f getVelocity() const;
-		
+		sf::Vector2f getVelocity() const { return mVelocity; }
+
+
 	private:
+
 		sf::Vector2f mVelocity;
 	};
 }

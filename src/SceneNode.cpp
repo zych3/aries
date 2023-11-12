@@ -1,6 +1,9 @@
 #include "SceneNode.h"
 
+#include <iostream>
+
 aries::SceneNode::SceneNode()
+	: mChildren()
 {
 }
 
@@ -36,4 +39,39 @@ void aries::SceneNode::draw(sf::RenderTarget& target, sf::RenderStates states) c
 
 void aries::SceneNode::drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const
 {
+}
+
+
+void aries::SceneNode::update(sf::Time dt)
+{
+	updateCurrent(dt);
+	updateChildren(dt);
+}
+
+void aries::SceneNode::updateChildren(sf::Time dt)
+{
+	
+	for (auto iter = mChildren.begin(); iter != mChildren.end(); ++iter) (*iter)->update(dt);
+}
+
+void aries::SceneNode::updateCurrent(sf::Time dt)
+{
+	
+}
+
+
+sf::Transform aries::SceneNode::getWorldTransform() const
+{
+	sf::Transform transform = sf::Transform::Identity;
+	for(const SceneNode* node = this;
+		node != nullptr;
+		node = node->mParent)
+			transform = node->getTransform() * transform;
+
+	return transform;
+}
+
+sf::Vector2f aries::SceneNode::getWorldPosition() const
+{
+	return getWorldTransform() * sf::Vector2f();
 }

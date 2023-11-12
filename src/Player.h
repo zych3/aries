@@ -9,6 +9,8 @@ namespace aries
 
 		virtual void drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;
 
+		
+
 	private:
 		sf::Sprite mSprite;
 		

@@ -17,6 +17,7 @@ namespace aries
 		void handlePlayerInput(sf::Keyboard::Key,
 			bool isPressed);
 	private:
+		
 		sf::RenderWindow mWindow;
 		sf::Texture mTexture;
 		sf::Sprite mPlayer;
@@ -24,6 +25,10 @@ namespace aries
 			mIsMovingDown = false,
 			mIsMovingLeft = false,
 			mIsMovingRight = false;
+
+		
+
+		
 
 	};
 }
