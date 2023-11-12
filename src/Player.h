@@ -2,7 +2,7 @@
 #include "Entity.h"
 namespace aries
 {
-	class Player : Entity
+	class Player : public Entity
 	{
 	public:
 		explicit Player(const TextureHolder& textures);

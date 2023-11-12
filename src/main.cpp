@@ -1,8 +1,17 @@
+#include <iostream>
+#include <fmt/core.h>
 #include "Game.h"
 
 int main()
 {
-    aries::Game game;
-    game.run();
-
+    try
+    {
+        aries::Game game;
+        game.run();
+    }
+    catch (std::exception& e)
+    {
+        fmt::println("EXCEPTION: {}",
+					 e.what());
+    }
 }

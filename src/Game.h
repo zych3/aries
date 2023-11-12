@@ -1,5 +1,6 @@
 #pragma once
 #include "ariespch.h"
+#include "World.h"
 #include "ResourceHolder.h"
 namespace aries
 {
@@ -21,14 +22,11 @@ namespace aries
 		sf::RenderWindow mWindow;
 		sf::Texture mTexture;
 		sf::Sprite mPlayer;
+		aries::World mWorld;
 		bool mIsMovingUp = false,
 			mIsMovingDown = false,
 			mIsMovingLeft = false,
 			mIsMovingRight = false;
-
-		
-
-		
 
 	};
 }

@@ -22,7 +22,7 @@ FetchContent_MakeAvailable(fmt)
 add_executable(aries src/main.cpp "src/Game.h" "src/Game.cpp"
 "src/ResourceHolder.h"  
 "src/ariespch.h" "src/ariespch.cpp"
-"src/Entity.h" "src/Player.h" "src/SceneNode.h" "src/SceneNode.cpp" "src/Player.cpp")
+"src/Entity.h" "src/Player.h" "src/SceneNode.h" "src/SceneNode.cpp" "src/Player.cpp" "src/SpriteNode.h" "src/World.h" "src/World.cpp" "src/SpriteNode.cpp")
 target_link_libraries(aries PRIVATE sfml-graphics fmt-header-only)
 target_compile_features(aries PRIVATE cxx_std_20)
 target_compile_definitions(aries PRIVATE TEXTURE_PATH="${CMAKE_SOURCE_DIR}/src/content/textures/")

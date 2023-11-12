@@ -4,16 +4,9 @@
 #include <fmt/core.h>
 
 aries::Game::Game()
-	: mWindow(sf::VideoMode(1920, 1080), "ARIES")
+	: mWindow(sf::VideoMode(1920, 1080), "ARIES"),
+	mWorld(mWindow)
 {
-	if(!mTexture.loadFromFile(TEXTURE_PATH "test.png"))
-	{
-		std::cout << "FILE NOT FOUND!!";
-		return;
-	}
-	mPlayer.setTexture(mTexture);
-	mPlayer.setPosition(100.f, 100.f);
-	
 	
 }
 
@@ -73,7 +66,9 @@ void aries::Game::update(sf::Time deltaTime)
 void aries::Game::render()
 {
 	mWindow.clear();
-	mWindow.draw(mPlayer);
+	mWorld.draw();
+	mWindow.setView(mWindow.getDefaultView());
+	//mWindow.draw(mStatisticsText);
 	mWindow.display();
 }
 

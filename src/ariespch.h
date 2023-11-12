@@ -10,6 +10,8 @@
 #include <SFML/Audio.hpp>
 #include <SFML/System/Vector2.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/Transformable.hpp>
 
 //enums
 #include "ResourceHolder.h"
