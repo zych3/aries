@@ -12,12 +12,17 @@ aries::World::World(sf::RenderWindow& window)
 	, mSpawnPosition(
 		mWorldBounds.width - mWorldView.getSize().x,
 		mWorldView.getSize().y / 2.f)
-	, mPlayer(nullptr), mScrollSpeed(20.f)
+	, mScrollSpeed(20.f)
 {
 	loadTextures();
 	buildScene();
 
 	mWorldView.setCenter(mSpawnPosition);
+
+	
+
+	mPlayer = new Player(mTextures);
+
 }
 
  void aries::World::loadTextures()
@@ -57,7 +62,7 @@ void aries::World::buildScene()
 	mPlayer = player.get();
 
 	mPlayer->setPosition(mSpawnPosition);
-	//mPlayer->setVelocity(mScrollSpeed, 40.f);
+	mPlayer->setVelocity(mScrollSpeed, 40.f);
 	mSceneLayers[Gameplay]->attachChild(std::move(player));
 	
 	
@@ -74,14 +79,24 @@ void aries::World::update(sf::Time dt)
 {
 	mWorldView.move(mScrollSpeed * dt.asSeconds(), 0.f);
 
-	sf::Vector2f position = mPlayer->getPosition();
-	sf::Vector2f velocity = mPlayer->getVelocity();
+	mPlayer->setVelocity(0.f, 0.f);
 
-	/*if (position.y <= mWorldBounds.top + 150 
-		|| position.y >= mWorldBounds.top + mWorldBounds.height - 150)
-	{
-		velocity.y = -velocity.y;
-		mPlayer->setVelocity(velocity);
-	}*/
+	while (!mCommandQueue.isEmpty())
+		mSceneGraph.onCommand(mCommandQueue.pop(), dt);
+
+
 	mSceneGraph.update(dt);
+
+	sf::FloatRect viewBounds(
+		mWorldView.getCenter() - mWorldView.getSize() / 2.f,
+		mWorldView.getSize()
+	);
+	const float borderDistance = 40.f;
+
+	sf::Vector2f pos = mPlayer->getPosition();
+	pos.x = std::max(pos.x, viewBounds.left + borderDistance);
+
+	pos.x = std::min(pos.x, viewBounds.left +
+		viewBounds.width - borderDistance);
+	mPlayer->setPosition(pos);
 }

@@ -4,6 +4,7 @@
 #include "ariespch.h"
 #include "Player.h"
 #include "SceneNode.h"
+#include "CommandQueue.h"
 
 namespace aries
 {
@@ -13,6 +14,8 @@ namespace aries
 		explicit World(sf::RenderWindow& window);
 		void update(sf::Time dt);
 		void draw();
+		inline CommandQueue& getCommandQueue() { return mCommandQueue; }
+		inline Player* getPlayer() const { return mPlayer; }
 
 	private:
 		void loadTextures();
@@ -38,5 +41,8 @@ namespace aries
 		sf::Vector2f mSpawnPosition;
 		float mScrollSpeed;
 		Player* mPlayer;
+		CommandQueue mCommandQueue;
 	};
+
+	
 }

@@ -15,18 +15,20 @@ namespace aries
 		void processEvents();
 		void update(sf::Time deltaTime);
 		void render();
-		void handlePlayerInput(sf::Keyboard::Key,
-			bool isPressed);
+		void processInput();
+		/*void handlePlayerInput(sf::Keyboard::Key,
+			bool isPressed);*/
 	private:
 		
 		sf::RenderWindow mWindow;
-		sf::Texture mTexture;
-		sf::Sprite mPlayer;
 		aries::World mWorld;
-		bool mIsMovingUp = false,
+		sf::Texture mTexture;
+		Player* mPlayer;
+		bool mIsPaused;
+		/*bool mIsMovingUp = false,
 			mIsMovingDown = false,
 			mIsMovingLeft = false,
-			mIsMovingRight = false;
+			mIsMovingRight = false;*/
 
 	};
 }

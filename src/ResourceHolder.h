@@ -46,7 +46,7 @@ namespace aries
 	{
 	public:
 		void load(ID id, const std::string& filename);
-
+		
 
 		template <typename Parameter>
 		void load(ID id, const std::string& filename, const Parameter& secondParam); //for shaders, as they pass in 3 args

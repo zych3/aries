@@ -75,3 +75,14 @@ sf::Vector2f aries::SceneNode::getWorldPosition() const
 {
 	return getWorldTransform() * sf::Vector2f();
 }
+
+void aries::SceneNode::onCommand(const Command& command, sf::Time dt)
+{
+	if (command.category & getCategory())
+		command.action(*this, dt);
+
+	for(int i = 0; i < mChildren.size(); ++i)
+	{
+		mChildren[i]->onCommand(command, dt);
+	}
+}

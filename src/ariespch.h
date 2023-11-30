@@ -14,4 +14,10 @@
 #include <SFML/Graphics/Transformable.hpp>
 
 //enums
+#include <functional>
+
 #include "ResourceHolder.h"
+
+
+
+
